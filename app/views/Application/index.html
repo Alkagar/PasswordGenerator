@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if flash.error}
+    <p style="color:#c00">
+        ${flash.error}
+    </p>
+#{/if}
+
+<form action="@{Application.generate()}" method="POST">
+    <input type="text" name="username" />
+    <input type="submit" value="generate password" />
+</form>
+
+
+<div class='title'>
+    Ostatnio wygenerowane hasła:
+</div>
+
+#{if passwords}
+    <ul>
+    #{list items:passwords, as: 'password'}
+        <li> 
+            ${password.password} was generated for user: "${password.user}",
+        </li>
+    #{/list}
+    </ul>
+#{/if}
+#{else}
+    <div class='information'>
+        There is no generated password's... :(<br />
+        No one use this app... I'm sad, sad... sad...
+    </div> 
+#{/else}
+
