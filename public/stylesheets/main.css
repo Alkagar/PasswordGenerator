@@ -30,3 +30,34 @@ h2 {
 .error-box {
     margin:20px; border-bottom:2px solid #A60000; border-top:2px solid #A60000; padding-top:10px; padding-bottom:10px; width:500px;
 }
+
+
+
+.text-normal {
+    margin:20px;
+}
+
+
+
+
+a {
+    color:#6C0000; font-style:italic; text-decoration:none; letter-spacing:1px; margin-left:5px; margin-right:5px;
+}
+
+
+.div-row {
+    display:table-row;
+}
+.div-cell {
+    display:table-cell;
+}
+
+
+
+.create-account .div-row .div-cell:first-child {
+    width:200px;
+}
+
+.form-input-error {
+    font-size:10px; color:#A60000; font-weight:bold; display:block;
+}

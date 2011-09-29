@@ -1,0 +1,73 @@
+#{extends 'main.html' /}
+#{set title:'THE Password Generator - create new account' /}
+
+<div class='title'>
+    create account:
+</div>
+<div class='text-normal'>
+    To create new account, complete form below:
+    <br />
+    <br />
+        
+    <form action="@{User.createAccount()}" method="POST">
+    <div class="create-account">
+        <div class="div-row">
+            <div class="div-cell">
+                your system login: 
+                <span class='form-input-error'>#{error 'username' /}</span>
+            </div>
+            <div class="div-cell">
+                #{input name:"username", value:"${flash.username}", class:"form-input" /} 
+            </div>
+        </div>
+        <div class="div-row">
+            <div class="div-cell">
+                your first name:
+                <span class='form-input-error'>#{error 'firstName' /}</span>
+            </div>
+            <div class="div-cell">
+                #{input name:"firstName", value:"${flash.firstName}", class:"form-input" /} 
+            </div>
+        </div>
+        <div class="div-row">
+            <div class="div-cell">
+                your surname:
+                <span class='form-input-error'>#{error 'surname' /}</span>
+            </div>
+            <div class="div-cell">
+                #{input name:"surname", value:"${flash.surname}", class:"form-input" /} 
+            </div>
+        </div>
+        <div class="div-row">
+            <div class="div-cell">
+                your e-mail:
+                <span class='form-input-error'>#{error 'email' /}</span>
+            </div>
+            <div class="div-cell">
+                #{input name:"email", value:"${flash.email}", class:"form-input" /} 
+            </div>
+        </div>
+        <div class="div-row">
+            <div class="div-cell">
+                password:
+                <span class='form-input-error'>#{error 'password1' /}</span>
+            </div>
+            <div class="div-cell">
+                #{input name:"password1", value:"${flash.password1}", class:"form-input" /} 
+            </div>
+        </div>
+        <div class="div-row">
+            <div class="div-cell">
+                repeat password:
+                <span class='form-input-error'>#{error 'password1' /}</span>
+            </div>
+            <div class="div-cell">
+                #{input name:"password2", value:"${flash.password2}", class:"form-input" /} 
+            </div>
+        </div>
+    </div>
+    <div> <input type='submit' name='save' value='create account!!' /> </div>
+    </form>
+
+</div>
+

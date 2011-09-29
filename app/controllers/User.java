@@ -25,4 +25,15 @@ public class User extends ApplicationDefault {
         render();
     }
 
+    public static void createAccount(String username, String password1, String password2, String surname, String email, String firstName) {
+
+        validation.required(username);
+        validation.required(password1);
+        validation.required(password2);
+        validation.required(surname);
+        validation.required(email);
+        validation.required(firstName);
+        params.flash();
+       render(); 
+    }
 }

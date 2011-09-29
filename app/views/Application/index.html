@@ -1,5 +1,10 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'THE Password Generator' /}
+
+<div class='text-normal'>
+    To use <strong> <sub>THE</sub> Password Generator</strong> system you need an account. It's free and simple to create one. <br />
+    <a href='@{User.createAccount()}'>let's create new account</a>
+</div>
 
 <form action="@{Application.generate()}" method="POST">
     <input type="text" name="username" />
