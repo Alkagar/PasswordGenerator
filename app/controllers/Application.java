@@ -30,4 +30,8 @@ public class Application extends ApplicationDefault {
         new models.Password(username, randomPassword, false).save();
         index();
     }
+
+    public static void simpleForm(String imie){
+    	render(imie);
+    }
 }

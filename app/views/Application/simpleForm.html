@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<h1> Witaj ${imie ?: ''}! </h1>
+
+<form action="@{Application.simpleForm()}" method="GET">
+	<label>Podaj imie: </label>
+	<input type="text" name="imie" /> 
+	<input type="submit" value="OK" />
+</form>
+<a href="@{Application.index()}">Powrot</a>
+
