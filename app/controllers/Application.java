@@ -13,7 +13,7 @@ import models.*;
 
 
 
-public class Application extends Controller {
+public class Application extends ApplicationDefault {
 
     public static void index() {
         List<models.Password> passwords = models.Password.all().from(0).fetch(10);
@@ -29,12 +29,5 @@ public class Application extends Controller {
         }
         new models.Password(username, randomPassword, false).save();
         index();
-    }
-
-    @Before
-    public static void setDefault() {
-        renderArgs.put("applicationPrefix", Play.configuration.getProperty("passGen.app.prefix"));
-        renderArgs.put("applicationName", Play.configuration.getProperty("passGen.app.name"));
-        renderArgs.put("applicationVersion", Play.configuration.getProperty("passGen.app.version"));
     }
 }

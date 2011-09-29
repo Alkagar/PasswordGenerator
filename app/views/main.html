@@ -20,6 +20,12 @@
         </div>
         <div class='hr'>
         </div>
+       #{if flash.error}
+    <div class="error-box">
+        ${flash.error}
+    </div>
+#{/if}
+
         #{doLayout /}
 
 <div class='footer-holder'>

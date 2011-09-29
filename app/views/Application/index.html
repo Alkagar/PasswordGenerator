@@ -1,12 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{if flash.error}
-    <p style="color:#c00">
-        ${flash.error}
-    </p>
-#{/if}
-
 <form action="@{Application.generate()}" method="POST">
     <input type="text" name="username" />
     <input type="submit" value="generate password" />
