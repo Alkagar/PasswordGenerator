@@ -31,6 +31,10 @@ public class Application extends Controller {
         index();
     }
 
+    public static void simpleForm(String imie){
+	render(imie);
+    }
+
     @Before
     public static void setDefault() {
         renderArgs.put("applicationPrefix", Play.configuration.getProperty("passGen.app.prefix"));
