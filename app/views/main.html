@@ -14,12 +14,16 @@
         <div class='top-border'>
         </div>
         <div class='title-holder'>
-            <strong>THE</strong> 
-            <h2>Strongest Password Generator</h2> 
-            <div class='small'>v 0.1 on Play Framework</div>
+            <strong>${applicationPrefix}</strong> 
+            <h2>${applicationName}</h2> 
+            <div class='small'>v ${applicationVersion} on Play Framework</div>
         </div>
         <div class='hr'>
         </div>
         #{doLayout /}
+
+<div class='footer-holder'>
+    ${applicationPrefix} ${applicationName} created by Katarzyna Wieczorek & Jakub Mrowiec
+</div>
     </body>
 </html>

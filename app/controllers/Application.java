@@ -30,11 +30,11 @@ public class Application extends Controller {
         new models.Password(username, randomPassword, false).save();
         index();
     }
-    public static void sayHello(@Required String myName) {
-        if(validation.hasErrors()) {
-            flash.error("Oops, validation fails");
-            index();
-        }
-        render(myName);
+
+    @Before
+    public static void setDefault() {
+        renderArgs.put("applicationPrefix", Play.configuration.getProperty("passGen.app.prefix"));
+        renderArgs.put("applicationName", Play.configuration.getProperty("passGen.app.name"));
+        renderArgs.put("applicationVersion", Play.configuration.getProperty("passGen.app.version"));
     }
 }
