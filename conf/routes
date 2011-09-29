@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 
+POST    /admin/                                 Admin.Index.index
+
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
@@ -12,6 +15,9 @@ GET     /favicon.ico                            404
 GET     /public/                                staticDir:public
 
 POST     /hello                                  Application.sayHello
+
+# Catch all admin pages
+*       /admin/{controller}/{action}            Admin.{controller}.{action}
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
