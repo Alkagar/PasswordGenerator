@@ -17,7 +17,7 @@
                 <span class='form-input-error'>#{error 'username' /}</span>
             </div>
             <div class="div-cell">
-                #{input name:"username", value:"${flash.username}", class:"form-input" /} 
+                #{input name:"username", value:"${params.get("username") ?: ""}", class:"form-input" /} 
             </div>
         </div>
         <div class="div-row">
@@ -26,7 +26,7 @@
                 <span class='form-input-error'>#{error 'firstName' /}</span>
             </div>
             <div class="div-cell">
-                #{input name:"firstName", value:"${flash.firstName}", class:"form-input" /} 
+                #{input name:"firstName", value:"${params.get("firstName") ?: ""}", class:"form-input" /} 
             </div>
         </div>
         <div class="div-row">
@@ -35,7 +35,7 @@
                 <span class='form-input-error'>#{error 'surname' /}</span>
             </div>
             <div class="div-cell">
-                #{input name:"surname", value:"${flash.surname}", class:"form-input" /} 
+                #{input name:"surname", value:"${params.get("surname") ?: ""}", class:"form-input" /} 
             </div>
         </div>
         <div class="div-row">
@@ -44,7 +44,7 @@
                 <span class='form-input-error'>#{error 'email' /}</span>
             </div>
             <div class="div-cell">
-                #{input name:"email", value:"${flash.email}", class:"form-input" /} 
+                #{input name:"email", value:"${params.get("email") ?: ""}", class:"form-input" /} 
             </div>
         </div>
         <div class="div-row">
@@ -53,16 +53,15 @@
                 <span class='form-input-error'>#{error 'password1' /}</span>
             </div>
             <div class="div-cell">
-                #{input name:"password1", value:"${flash.password1}", class:"form-input" /} 
+                #{input name:"password1", value:"${params.get("password1") ?: ""}", class:"form-input" /} 
             </div>
         </div>
         <div class="div-row">
             <div class="div-cell">
                 repeat password:
-                <span class='form-input-error'>#{error 'password1' /}</span>
             </div>
             <div class="div-cell">
-                #{input name:"password2", value:"${flash.password2}", class:"form-input" /} 
+                #{input name:"password2", value:"${params.get("password2") ?: ""}", class:"form-input" /} 
             </div>
         </div>
     </div>
