@@ -57,7 +57,25 @@ a {
 .create-account .div-row .div-cell:first-child {
     width:200px;
 }
-
 .form-input-error {
     font-size:10px; color:#A60000; font-weight:bold; display:block;
 }
+
+
+
+
+
+
+/** forms styles  */
+.form {
+    margin:10px;
+}
+.input-field {
+    width:200px; border:1px solid #3F92D2; padding:2px; font-size:10px; font-family:verdana; margin:2px;
+}
+.submit-button {
+    border:1px outset #3F92D2; padding:2px; font-size:10px; font-family:verdana; margin:2px;
+}
+.long { width:155px; }
+.short { width:75px; }
+

@@ -11,11 +11,28 @@
     <!--<input type="submit" value="generate password" />-->
 <!--</form>-->
 
+<!--<a href=@{User.showUser("Alkagar")}>see user</a>-->
 
 <div class='title'>
-    Ostatnio wygenerowane hasła:
+find user by name:
 </div>
-<a href=@{User.showUser("Alkagar")}>see user</a>
+<div class='text-normal'>
+    Find user by his login: <br />
+    #{forms.findUserByName /}
+</div>
+
+<div class='title'>
+have an account?
+</div>
+<div class='text-normal'>
+    To use all our services log in: <br />
+    #{forms.login /}
+</div>
+
+
+<div class='title'>
+recent passwords:
+</div>
 #{if passwords}
     <ul>
     #{list items:passwords, as: 'password'}

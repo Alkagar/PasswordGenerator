@@ -9,12 +9,37 @@ import java.security.SecureRandom;
 import java.math.BigInteger;
 
 import models.*;
-
+import modules.*;
 
 
 
 public class User extends ApplicationDefault {
 
+    public static void login() {
+        validation.required(params.get("username"));
+        validation.minSize(params.get("username"), 5);
+        validation.minSize(params.get("password"), 5);
+
+
+        /** application logic  */
+        if(validation.hasErrors())
+        {
+            flash.error("Nope... I can't log you in. I can't validate your data. Sorry Winnetou... :(");
+            Application.index();
+        }
+            
+        SystemUser user = new SystemUser();
+        user.authorize(params.get("username"), params.get("password"));
+        if(user.isLoggedIn()) 
+        {
+            render(user); 
+        }
+        else
+        {
+            flash.error("Nope... I can't log you in. Wrong password or user name. Sorry Winnetou... :(");
+            Application.index();
+        }
+    }
     public static void showUser(@Required String username) {
         List<models.User> users = models.User.find("username", username).fetch();
         if(users.size() == 0)
