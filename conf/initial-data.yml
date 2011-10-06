@@ -1,4 +1,15 @@
-Password(pass1):
-    user:           Josh
-    password:       secret
-    shortType:       true
+# Test data
+
+User(alkagar):
+    username:   alkagar
+    firstName:  Jakub
+    surname:    Mrowiec
+    email:      alkagar@gmail.com
+    password:   kuba123
+
+User(wieczor):
+    username:   wiczor 
+    firstName:  Katarzyna
+    surname:    Wieczorek
+    email:      kasia.wieczor@gmail.com
+    password:   kasia123   
