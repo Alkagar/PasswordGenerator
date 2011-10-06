@@ -1,0 +1,14 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{selenium}
+    // Open the home page, and check that no error occured
+    open('http://kibeth:9000/')
+    assertNotTitle('Application error')
+
+    /** check if all panels are ready  */
+    assertTextPresent('Password Generator')
+    assertTextPresent('find user by name')
+    assertTextPresent('have an account')
+    assertTextPresent('recent passwords')
+
+#{/selenium}

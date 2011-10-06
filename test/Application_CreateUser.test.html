@@ -1,0 +1,44 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{selenium}
+    // Open the home page, and check that no error occured
+    open('http://kibeth:9000/user/createaccount')
+
+    // check simple validation
+    clickAndWait('css=input[type=submit][name=save]')
+    assertTextPresent('Required')
+    type('css=input[type=text][name=username]', 'Alkagar')
+    type('css=input[type=text][name=firstName]', 'Jakub')
+    type('css=input[type=text][name=surname]', 'Mrowiec')
+    type('css=input[type=text][name=email]', 'alkagar@gmail.com')
+    type('css=input[type=text][name=password1]', 'bob123')
+    type('css=input[type=text][name=password2]', 'bob1234')
+
+    /** check if passwords match  */
+    clickAndWait('css=input[type=submit][name=save]')
+    assertTextNotPresent('Required')
+    assertTextPresent('Passwords does not match')
+
+    /** check if password is long for minimum 5   */
+    type('css=input[type=text][name=password1]', 'b3')
+    type('css=input[type=text][name=password2]', 'b3')
+    clickAndWait('css=input[type=submit][name=save]')
+    assertTextNotPresent('Required')
+    assertTextNotPresent('Passwords does not match')
+    assertTextPresent('Minimum size is 5')
+
+    /** set valid form and try to create user  */
+    type('css=input[type=text][name=password1]', 'b31234')
+    type('css=input[type=text][name=password2]', 'b31234')
+    clickAndWait('css=input[type=submit][name=save]')
+    assertTextNotPresent('Required')
+    assertTextNotPresent('Passwords does not match')
+    assertTextPresent('Password Generator')
+    assertTextPresent('To use all our services log in')
+
+
+    /** check if user realy exists in database  */
+    open('http://kibeth:9000/user/showUser?username=alkagar')
+    assertTextPresent('alkagar's profile')
+
+#{/selenium}
