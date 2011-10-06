@@ -20,7 +20,6 @@ public class User extends ApplicationDefault {
         validation.minSize(params.get("username"), 5);
         validation.minSize(params.get("password"), 5);
 
-
         /** application logic  */
         if(validation.hasErrors())
         {
@@ -30,6 +29,7 @@ public class User extends ApplicationDefault {
             
         SystemUser user = new SystemUser();
         user.authorize(params.get("username"), params.get("password"));
+        user.storeUserInSession();
         if(user.isLoggedIn()) 
         {
             render(user); 
@@ -40,6 +40,7 @@ public class User extends ApplicationDefault {
             Application.index();
         }
     }
+
     public static void showUser(@Required String username) {
         List<models.User> users = models.User.find("username", username).fetch();
         if(users.size() == 0)

@@ -15,7 +15,7 @@
         </div>
         <div class='title-holder'>
             <strong>${applicationPrefix}</strong> 
-            <h2>${applicationName}</h2> 
+            <h2><a href='@{Application.index()}'>${applicationName}</a></h2> 
             <div class='small'>v ${applicationVersion} on Play Framework</div>
         </div>
         <div class='hr'>
@@ -25,6 +25,7 @@
         ${flash.error}
     </div>
 #{/if}
+    Aktualny uzytkownik = ${authUser?.information?.username ?: "niezalogowany"}
 
         #{doLayout /}
 

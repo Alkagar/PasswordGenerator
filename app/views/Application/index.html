@@ -21,6 +21,7 @@ find user by name:
     #{forms.findUserByName /}
 </div>
 
+#{if authUser}
 <div class='title'>
 have an account?
 </div>
@@ -28,7 +29,7 @@ have an account?
     To use all our services log in: <br />
     #{forms.login /}
 </div>
-
+#{/if}
 
 <div class='title'>
 recent passwords:
