@@ -24,7 +24,9 @@ public class ApplicationDefault extends Controller {
         renderArgs.put("applicationPrefix", Play.configuration.getProperty("passGen.app.prefix"));
         renderArgs.put("applicationName", Play.configuration.getProperty("passGen.app.name"));
         renderArgs.put("applicationVersion", Play.configuration.getProperty("passGen.app.version"));
-
+    }
+    @Before
+    public static void checkAuthorization() {
         SystemUser authUser = SystemUser.retrieveUserFromSession();
         renderArgs.put("authUser", authUser); // look out, it's null when user is not authorizes, need to check in view
     }

@@ -29,9 +29,9 @@ public class User extends ApplicationDefault {
             
         SystemUser user = new SystemUser();
         user.authorize(params.get("username"), params.get("password"));
-        user.storeUserInSession();
         if(user.isLoggedIn()) 
         {
+            user.storeUserInSession();
             Application.index();
         }
         else

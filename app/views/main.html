@@ -22,9 +22,10 @@
         <div class='hr'> </div>
         <div class='status-bar'>
             <div class='status-menu'>
-                #{if authUser}
+                #{if authUser.information}
                     <a href='@{User.showuser(authUser.information.username)}'>your profile</a> | 
-                    generate new password | your stored passwords | 
+                    <a href='@{Application.generate(authUser.information?.username)}'>generate new password</a> | 
+                    your stored passwords | 
                     <a href='@{User.logout()}'>log out</a>
                 #{/if}
             </div>

@@ -10,9 +10,6 @@ import java.math.BigInteger;
 
 import models.*;
 
-
-
-
 public class Application extends ApplicationDefault {
 
     public static void index() {
@@ -27,7 +24,7 @@ public class Application extends ApplicationDefault {
             flash.error("Ooops, I need your name to generate random password");
             index();
         }
-        new models.Password(username, randomPassword, false).save();
+//        new models.Password(username, randomPassword, false).save();
         index();
     }
 

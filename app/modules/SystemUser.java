@@ -1,7 +1,7 @@
 package modules;
 
 import play.*;
-import play.cache.*;
+import play.mvc.Scope.*;
 import play.mvc.*;
 import play.data.validation.*;
 
@@ -15,6 +15,11 @@ public class SystemUser implements Serializable {
 
     private boolean loggedIn = false;
     public models.User information = null;
+
+
+    public SystemUser() {
+        
+    }
 
     public void authorize(String username, String password) {
         List<models.User> users = models.User.find("username = ? and password = ?", username, password).fetch();
@@ -34,15 +39,25 @@ public class SystemUser implements Serializable {
     }
 
     public void logout() {
-        Cache.safeDelete("authUser");
+        Session session = Session.current();
+        session.remove("authUser");
     }
     
     public void storeUserInSession() {
-        Cache.set("authUser", this);
+        Session session = Session.current();
+        session.put("authUser", this.information.username); 
+        System.out.println("Data stored in session");
     }
 
     public static SystemUser retrieveUserFromSession() {
-        SystemUser authUser = (SystemUser)Cache.get("authUser");
+        Session session = Session.current();
+        SystemUser authUser = new SystemUser();
+        if(session.contains("authUser"))
+        {
+            System.out.println("Try to get data from session");
+            List<models.User> users = models.User.find("username = ?", session.get("authUser")).fetch();
+            authUser.information = users.get(0);
+        }
         return authUser;
     }
 }
