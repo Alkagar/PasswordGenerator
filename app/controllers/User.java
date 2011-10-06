@@ -32,7 +32,7 @@ public class User extends ApplicationDefault {
         user.storeUserInSession();
         if(user.isLoggedIn()) 
         {
-            render(user); 
+            Application.index();
         }
         else
         {
@@ -41,6 +41,11 @@ public class User extends ApplicationDefault {
         }
     }
 
+    public static void logout() {
+       SystemUser user = SystemUser.retrieveUserFromSession();
+       user.logout();
+       Application.index();
+    }
     public static void showUser(@Required String username) {
         List<models.User> users = models.User.find("username", username).fetch();
         if(users.size() == 0)

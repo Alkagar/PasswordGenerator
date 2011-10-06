@@ -32,6 +32,10 @@ public class SystemUser implements Serializable {
     public boolean isLoggedIn() {
         return this.loggedIn;
     }
+
+    public void logout() {
+        Cache.safeDelete("authUser");
+    }
     
     public void storeUserInSession() {
         Cache.set("authUser", this);
